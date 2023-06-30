@@ -1,3 +1,7 @@
+<?php
+include 'base_url.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,13 +25,18 @@
         font-size: 90%;
         font-weight: 400;
         }
+        body{
+        background: url("<?php echo $base_url;?>/assets/dendi.png");
+        background-size: cover;
+        background-position: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="payment-selection">
         <div class="logo">
-            <img src="assets/nobg-netglobalpay.png" alt="Logo">
+            <img src="<?php echo $base_url;?>/assets/nobg-netglobalpay.png" alt="Logo">
         </div>
             <div class="title">
             
@@ -106,7 +115,7 @@
 
                 <!-- <button class="submit-button" type="submit">Submit</button> -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
-                <a href="/topup-demo-dark" class="cancel-link">Cancel</a>
+                <a href="<?php echo $base_url;?>" class="cancel-link">Cancel</a>
 
             </form>
 

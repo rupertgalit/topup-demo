@@ -1,3 +1,10 @@
+<?php
+include 'base_url.php';
+require_once "vendor/autoload.php";
+ 
+use GuzzleHttp\Client;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +13,8 @@
     <link rel="stylesheet" href="styles.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <title>Payment Selection</title>        
+    <link rel="icon" href="assets/netglobalpay.jpg" type="image/x-icon">
+    <title>Topup Demo</title>        
     <style>
 
     /* payment option selector */
@@ -46,7 +54,7 @@
                 }
 
                 body {
-                background: url("assets/dendi.png");
+                background: url("<?php echo $base_url;?>/assets/dendi.png");
                 background-size: cover;
                 background-position: center;
                 margin: 0;
@@ -83,7 +91,7 @@
     </style>
 </head>
 <body>
-    <form id="payment-form" action="output.php" method="POST">
+    <form id="payment-form" action="<?php echo $base_url;?>/output.php" method="POST">
         <div class="payment-selection">
             <div class="logo">
                 <img src="assets/nobg-netglobalpay.png" alt="Logo">
