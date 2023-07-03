@@ -1,5 +1,22 @@
 {
-    "require": {
-        "guzzlehttp/guzzle": "^7.7"
-    }
+	"require": {
+		"php": ">=5.3.7",
+		"vlucas/phpdotenv": "^5.3",
+		"filp/whoops": "^2.14",
+		"coingate/coingate-php": "^3.0",
+		"firebase/php-jwt": "^5.3",
+		"guzzlehttp/guzzle": "^7.4",
+		"web-token/jwt-framework": "^2.2",
+		"web-token/jwt-encryption": "^2.2",
+		"web-token/jwt-easy": "^2.2",
+		"stichoza/google-translate-php": "^4.1"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"require-dev": {
+		"mikey179/vfsstream": "1.1.*",
+		"phpunit/phpunit": "4.* || 5.*",
+		"filp/whoops": "^2.14"
+	}
 }
