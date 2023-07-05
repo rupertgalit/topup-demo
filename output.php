@@ -1,5 +1,11 @@
 <?php
 include 'base_url.php';
+
+if(!isset($_POST['first_name']))
+{
+    $redirect = "http://" . $_SERVER['SERVER_NAME'] . "/topup-demo";
+    header ("location: $redirect");
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +55,8 @@ include 'base_url.php';
             
             <?php
             // Retrieve the form data
-            $pid = isset($_GET['pid']) ? $_GET['pid'] : time();            
+            $pid = isset($_GET['pid']) ? $_GET['pid'] : time();   
+            $frontendReturnUrl = "https://topup-demo.netglobalsolutions.net/payment_success";     
             $full_name = $_POST['first_name'];            
             $email_address = $_POST['email_address'];                  
             $amount = $_POST['amount'];
@@ -70,10 +77,11 @@ include 'base_url.php';
             <br>
             <label class="cred">Full Name : <span class="cred-span"><?php echo $full_name ?></span></label><br>
             <label class="cred">Email : <span class="cred-span"><?php echo $email_address ?></span></label><br>
-            <label class="cred">Amount : <span class="cred-span">₱<?php echo $amount ?>.00</span></label>
+            <label class="cred">Amount : <span class="cred-span">P<?php echo $amount ?>.00</span></label>
         </div>
-        <hr class="light-hr">
+        
 
+        
                 <!-- form -->
 
             <form class="form-signin" method="POST"
@@ -81,7 +89,8 @@ include 'base_url.php';
 
                 <br>
                 <input type="hidden" name="page_source" value="<?php echo $_GET['pogo'] ?? 1; ?>">
-
+                <input type="hidden" name="frontendReturnUrl" value="<?php $frontendReturnUrl ?>">
+                
                 <div class="form-group  ">
                     <input class="form-control mb-3 " type="hidden" id="external_id" name="external_id"
                         value="<?php echo $randid;  ?>" placeholder="Enter Member Account">
@@ -112,12 +121,17 @@ include 'base_url.php';
                         <!-- <span class="btn " id="btn-cur-usd"  placeholder="USD" disbaled>USD</span> -->
                     </div>
                 </div>
-
+                <hr class="light-hr">
                 <!-- <button class="submit-button" type="submit">Submit</button> -->
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Pay</button><br>
+                
+                <center>
+                    <img src="assets/card.png" class="img-fluid" style="max-width: 40%; height: auto;">
+                </center>
                 <a href="<?php echo $base_url;?>" class="cancel-link">Cancel</a>
 
             </form>
+
 
     </div>
 

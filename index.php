@@ -1,4 +1,4 @@
-f<?php
+<?php
 include 'base_url.php';
 
 ?>
@@ -38,9 +38,13 @@ include 'base_url.php';
                 }
 
 
-                .payment-option:hover {
+                /* .payment-option:hover {
                 border: 2px solid #0261fb;
-                }
+                } */
+
+                .payment-card:hover{
+                border: 2px solid #0261fb;
+                } 
 
                 .payment-option:hover::after {
                 color: #0261fb; 
@@ -78,19 +82,22 @@ include 'base_url.php';
                     padding: 10px;
                     border-radius: 5px;
                     background: #ffffff;
-                    width: 100%;
+                    width: 94%;
                     font-size: 15px;
                 }
                 h3{
                     font-family: "Lucida Console", Courier, monospace;
+                }
+                h5{
+                    color:bisque;
                 }
                 .payment-card{
                     padding-top: 8px;
                     padding-bottom: 8px;
                 }
                 .payment-qr{
-                    padding-top: 6px;
-                    padding-bottom: 7px;
+                    padding-top: 15px;
+                    padding-bottom: 13px;
                 }
 
 
@@ -137,11 +144,11 @@ include 'base_url.php';
             {
                 var toast = document.createElement("div");
                 toast.innerText = message;
-                toast.style.backgroundColor = "lightblue";
-                toast.style.color = "black";
+                toast.style.background = "linear-gradient(to right, #DECBA4, #3E5151)" ;
+                toast.style.color = "#000000";
                 toast.style.padding = "10px";
                 toast.style.borderRadius = "8px";
-                toast.style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.3)";
+                toast.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
                 toast.style.position = "fixed";
                 toast.style.top = "77%";
                 toast.style.left = "50%";
@@ -169,6 +176,8 @@ include 'base_url.php';
                     var x = document.forms["myForm"]["name"].value;
                     var y = document.forms["myForm"]["email"].value;
                     var z = document.forms["myForm"]["amount"].value;
+                    var validRegex = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                     
                         if (x == "" || x == null) {
                             let message = "Name must be filled out";
@@ -179,7 +188,21 @@ include 'base_url.php';
                             let message = ("Email must be filled out");
                             makeToast(message); 
                             return false;
-                        }
+
+                            if(y.match(mailformat))
+                                {
+                               
+                                return true;
+                                }
+                                else
+                                {
+                                alert("You have entered an invalid email address!");
+                                document.form1.text1.focus();
+                                return false;
+                                }
+                                                            }
+
+                            
                         else if(z == "" || z == null ){
                             let message = ("Amount is Required");
                             makeToast(message); 
@@ -206,9 +229,10 @@ include 'base_url.php';
 
 
                 <form method="POST" action="<?php echo $base_url;?>/output.php">
-                <button class="payment-option" data-value="e-wallet" type="button">
+                <button class="payment-option" data-value="e-wallet" type="button"  disabled>
                     <img src="assets/ewallet.png" alt="E-Wallet">
                 </button>
+                <center><h5>Ewallet</h5></center>
                 </form>
 
                 <!-- CARDS 2C2P -->
@@ -221,19 +245,18 @@ include 'base_url.php';
                 <button class="payment-option payment-card" data-value="credit-card" type="submit">
                     <img src="assets/visa.png" alt="Credit card">
                 </button>
+                <center><h5>Credit/Debit</h5></center>
+                <center><h5 style = "margin-top: -15px" >Cards</h5></center>
                
                 </form>
 
-                <form method="POST" action="<?php echo $base_url;?>/qrph.php" onsubmit="return klik()">
-
-                    <input type="hidden" name="first_name" class="form-control" id="qr_first_name" value="" required/>
-                    <input type="hidden" name="email_address" class="form-control" id="qr_email_address" value="" required/>
-                    <!-- <input type="hidden" name="mobile_num" class="form-control" id="qr_mobile_num" value="" required/> -->
-                    <input type="hidden" name="amount" class="form-control" id="qr_amount" value="" required/>
-
-                <button class="payment-option payment-card" data-value="qr-ph" type="submit">
+                
+                <form method="POST" action="<?php echo $base_url;?>/output.php" >
+                <button class="payment-option " data-value="qr-ph" type="button" disabled>
                     <img src="assets/qrph.jpg" alt="QR PH" class="payment-qr">
                 </button>
+                <center><h5>QRPH</h5></center>
+                
 
                 </form>
 
@@ -245,10 +268,10 @@ include 'base_url.php';
                         document.getElementById("card_email_address").value = document.getElementById("email").value; 
                         document.getElementById("card_amount").value = document.getElementById("amount").value;
 
-                        document.getElementById("qr_first_name").value = document.getElementById("name").value;                               
-                        document.getElementById("qr_email_address").value = document.getElementById("email").value; 
+                        // document.getElementById("qr_first_name").value = document.getElementById("name").value;                               
+                        // document.getElementById("qr_email_address").value = document.getElementById("email").value; 
                         // ocument.getElementById("qr_mobile_num").value = document.getElementById("mobile_num").value; 
-                        document.getElementById("qr_amount").value = document.getElementById("amount").value;
+                        // document.getElementById("qr_amount").value = document.getElementById("amount").value;
                         }                
                 </script>
 

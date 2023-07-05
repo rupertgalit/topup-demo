@@ -1,7 +1,15 @@
 <?php 
 
-    $base_url = "http://localhost/topup-demo";
+    $live = "https://topup-demo.netglobalsolutions.net";
+    $dev = "http://localhost/topup-demo";
 
-    // $base_url ="https://topup-demo.netglobalsolutions.net"
 
+    if ($_SERVER['SERVER_NAME'] == "localhost"){
+    $base_url = $dev;
+    
+    }
+    else{
+        $base_url = $live;
+    }
+    
 ?>

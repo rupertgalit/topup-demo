@@ -66,7 +66,7 @@ $response = $client->request('POST', '/pgw/api/v1/transactions/qr-codes/generate
 ]);
 
 $status = $response->getStatusCode();
-echo $status;
+// echo $status;
 
 if (200 == $status || 201 == $status) {
     $body = $response->getBody();
@@ -153,12 +153,13 @@ else{
             
             <br><br>
             
-            <label class="cred">Mobile No. : <span class="cred-span">09xxxxx3438</span></label><br>
-            <label class="cred">Amount : <span class="cred-span">₱<?php echo $amount ?>.00</span></label>
+            <label class="cred">Reference No. : <span class="cred-span"><?php echo $ref_num ?></span></label><br>
+            <label class="cred">Amount : <span class="cred-span">P <?php echo $amount ?>.00</span></label>
             </center>
             
         </div>
         <hr class="light-hr">
+        <a href="<?php echo $base_url;?>" class="cancel-link">Cancel</a>
 
     </div>
 
