@@ -56,7 +56,8 @@ if(!isset($_POST['first_name']))
             <?php
             // Retrieve the form data
             $pid = isset($_GET['pid']) ? $_GET['pid'] : time();   
-            $frontendReturnUrl = "https://topup-demo.netglobalsolutions.net/payment_success";     
+            $frontendReturnUrl = "https://topup-demo.netglobalsolutions.net/payment_redirect.php";    
+            $company_id = 9; 
             $full_name = $_POST['first_name'];            
             $email_address = $_POST['email_address'];                  
             $amount = $_POST['amount'];
@@ -89,7 +90,8 @@ if(!isset($_POST['first_name']))
 
                 <br>
                 <input type="hidden" name="page_source" value="<?php echo $_GET['pogo'] ?? 1; ?>">
-                <input type="hidden" name="frontendReturnUrl" value="<?php $frontendReturnUrl ?>">
+                <input type="hidden" name="frontendReturnUrl" value="<?php echo $frontendReturnUrl ?>">
+                <input type="hidden" name="company_id" value="<?php echo $company_id ?>">
                 
                 <div class="form-group  ">
                     <input class="form-control mb-3 " type="hidden" id="external_id" name="external_id"
