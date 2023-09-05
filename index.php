@@ -227,7 +227,7 @@ include 'base_url.php';
 
 
 
-
+                <!-- ewallet -->
                 <form method="POST" action="<?php echo $base_url;?>/output.php">
                 <button class="payment-option" data-value="e-wallet" type="button"  disabled>
                     <img src="assets/ewallet.png" alt="E-Wallet">
@@ -251,6 +251,7 @@ include 'base_url.php';
                 </form>
 
                 
+                <!-- QRPH -->
                 <form method="POST" action="<?php echo $base_url;?>/output.php" >
                 <button class="payment-option " data-value="qr-ph" type="button" disabled>
                     <img src="assets/qrph.jpg" alt="QR PH" class="payment-qr">
