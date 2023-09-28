@@ -1,7 +1,7 @@
 <?php 
 
-    $live = "https://topup-demo.netglobalsolutions.net";
-    $dev = "http://localhost/topup-demo";
+    $live = "https://mmrc-topup.netglobalsolutions.net";
+    $dev = "http://localhost/mmrc-topup";
 
 
     if ($_SERVER['SERVER_NAME'] == "localhost"){

@@ -11,7 +11,8 @@ include 'base_url.php';
     <link rel="stylesheet" href="styles.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="icon" href="assets/netglobalpay.jpg" type="image/x-icon">
+    <link rel="icon" href="assets/mmrc-logo.png" type="image/x-icon">
+    <!-- <link rel="icon" href="assets/netglobalpay.jpg" type="image/x-icon"> -->
     <title>Topup Demo</title>        
     <style>
 
@@ -110,7 +111,8 @@ include 'base_url.php';
     <form id="payment-form" name="myForm" onsubmit="return klik()" action="#" method="POST">
         <div class="payment-selection">
             <div class="logo">
-                <img src="assets/nobg-netglobalpay.png" alt="Logo">
+                <img src="assets/mmrc-logo.png" alt="Logo">
+                <!-- <img src="assets/nobg-netglobalpay.png" alt="Logo"> -->
             </div>
             <div class="title">
                 <h2 class="nice-heading">Topup Request</h2>
@@ -221,8 +223,13 @@ include 'base_url.php';
 
             <center>
             <h3>Select a Payment Method</h3>
-            </center>
             <br>
+            <div class="logo">
+            <img src="assets/nobg-netglobalpay.png" alt="Logo" style="max-width:25%">
+            </div>
+            
+            </center>
+            
             <div class="payment-options">
 
 
@@ -252,14 +259,20 @@ include 'base_url.php';
 
                 
                 <!-- QRPH -->
-                <form method="POST" action="<?php echo $base_url;?>/output.php" >
-                <button class="payment-option " data-value="qr-ph" type="button" disabled>
+                <form method="POST" action="<?php echo $base_url;?>/qrph-p2p.php " onsubmit="return klik()" >
+
+                    <input type="hidden" name="first_name" class="form-control" id="card_first_name" value="" required/>
+                    <input type="hidden" name="email_address" class="form-control" id="card_email_address" value="" required/>
+                    <input type="hidden" name="amount" class="form-control" id="card_amount" value="" required/>
+
+                <button class="payment-option " data-value="qr-ph" type="submit" >
                     <img src="assets/qrph.jpg" alt="QR PH" class="payment-qr">
                 </button>
                 <center><h5>QRPH</h5></center>
                 
 
                 </form>
+
 
 
                 <script>
@@ -278,9 +291,11 @@ include 'base_url.php';
 
             </div>
 
+            
+
             <input type="hidden" id="payment-method" name="payment-method">
-            <br>
-            <br>
+    
+
         </div>
     
     <script src="script.js"></script>

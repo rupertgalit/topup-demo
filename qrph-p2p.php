@@ -30,14 +30,14 @@ $ref_num = uniqid();
 $name = 'rupert';
 $job = 'Dev';
 
-$token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4Mzg2MTY0LCJpYXQiOjE2ODgyOTk3NjQsImp0aSI6IjgwYzFiYTU5NjRkODRkOTI4MzYxOGEzMGI0YTlmYTdkIiwidXNlcl9pZCI6MX0.KxwrXUhpK85i_JuE16dSepTVnIvIISr57smCO5OkCWA';
+$token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1OTY3MTIwLCJpYXQiOjE2OTU4ODA3MjAsImp0aSI6ImQzYzdiYmQ4NGUzYzQ3NjdiYWRkNjQ1MTk5MTUyMGZkIiwidXNlcl9pZCI6Mn0.PSJK3jzDV4B_qnRaYUsW58M_M35YPinriDozzft2s6k';
 
 $response = $client->request('POST', '/pgw/api/v1/transactions/qr-codes/generate/', [
     
     "headers" => [
         // "auth" => ['ngsiadmin','super123456@'],
         'Content-Type' => 'application/json',
-        "Authorization" => 'Bearer '.$token,
+        'Authorization' => 'Bearer '.$token,
     
     ],
     
@@ -47,7 +47,7 @@ $response = $client->request('POST', '/pgw/api/v1/transactions/qr-codes/generate
         "endpoint" => "p2p-generateQR",
         "merchant_details" => [
             "method" => "dynamic",
-            "txn_type" => "transfer",
+            "txn_type" => 44,
             "mobile_number" => '09511223438',
             "city" => "Pasig City",
             "txn_amount" => $amount
@@ -57,7 +57,7 @@ $response = $client->request('POST', '/pgw/api/v1/transactions/qr-codes/generate
 ]);
 
 $status = $response->getStatusCode();
-echo $status;
+// echo $status;
 
 if (200 == $status || 201 == $status) {
     $body = $response->getBody();

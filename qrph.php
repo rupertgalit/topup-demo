@@ -30,7 +30,7 @@ $ref_num = uniqid();
 $name = 'rupert';
 $job = 'Dev';
 
-$token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4NDUxOTEzLCJpYXQiOjE2ODgzNjU1MTMsImp0aSI6IjJmZmJlMDZmM2I2MDQ2MGZhNjkwZTlkNGQ0YWEyYzA3IiwidXNlcl9pZCI6MX0.b6uEbcRUkLPZSaHFYZxdkqyhu669IK9WrKpIVs-DFmI';
+$token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1ODgxODA1LCJpYXQiOjE2OTU3OTU0MDUsImp0aSI6IjhkYTNjZWFhZDZhYzQzYTA5ODQxNzBiMjRjNzYxN2FlIiwidXNlcl9pZCI6Mn0.G5xh4J7MyTblykNPIKV_GrPCA5hbwV8TyijhHzSyBa8';
 
 $response = $client->request('POST', '/pgw/api/v1/transactions/qr-codes/generate/', [
     

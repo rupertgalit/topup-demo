@@ -54,10 +54,9 @@ if(!isset($_POST['first_name']))
             
             
             <?php
-            // Retrieve the form data
-            $pid = isset($_GET['pid']) ? $_GET['pid'] : time();   
+            
             $frontendReturnUrl = "https://topup-demo.netglobalsolutions.net/payment_redirect.php";    
-            $company_id = 9; 
+            $company_id = 10; 
             $full_name = $_POST['first_name'];            
             $email_address = $_POST['email_address'];                  
             $amount = $_POST['amount'];
@@ -79,7 +78,7 @@ if(!isset($_POST['first_name']))
             <label class="cred">Full Name : <span class="cred-span"><?php echo $full_name ?></span></label><br>
             <label class="cred">Email : <span class="cred-span"><?php echo $email_address ?></span></label><br>
             <label class="cred">Amount : <span class="cred-span">P<?php echo $amount ?>.00</span></label>
-        </div>
+           
         
 
         
